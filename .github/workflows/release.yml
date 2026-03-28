@@ -24,6 +24,11 @@ jobs:
         run: |
           ./scripts/build_dmg.sh
 
+      - name: Calculate SHA256
+        run: |
+          echo "SHA256=$(shasum -a 256 XLWidget.dmg | awk '{print $1}')" >> $GITHUB_ENV
+          echo "Final SHA256: $(shasum -a 256 XLWidget.dmg | awk '{print $1}')"
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v2

@@ -6,7 +6,15 @@ A lightweight, native macOS menu bar utility that keeps your XL Axiata data quot
 
 ## 📥 Download
 
+### Option 1: Direct Download
 Download the latest version as a `.dmg` from the **[Releases](https://github.com/amusfq/xl-widget/releases)** page.
+
+### Option 2: Homebrew (Recommended)
+You can install it via my personal Homebrew tap:
+```bash
+brew install amusfq/tap/xl-widget
+```
+*Note: This requires you to have the `homebrew-tap` repository created (see below).*
 
 > [!IMPORTANT]
 > Since this app is not signed with an Apple Developer certificate, macOS will block it with a "Damaged" error. To fix this, open **Terminal** and run:
