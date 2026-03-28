@@ -37,7 +37,7 @@ if command -v create-dmg &> /dev/null; then
     echo "Using create-dmg for a prettier DMG..."
     create-dmg \
         --volname "XL Widget" \
-        --volicon "XL Widget/Assets.xcassets/AppIcon.appiconset/Contents.json" \
+        --volicon "XL Widget/Assets.xcassets/AppIcon.appiconset/256.png" \
         --window-pos 200 120 \
         --window-size 600 400 \
         --icon-size 100 \
@@ -48,7 +48,15 @@ if command -v create-dmg &> /dev/null; then
         Build/DMG/
 else
     echo "Using hdiutil to create a simple DMG..."
-    hdiutil create -fs HFS+ -srcfolder Build/DMG -volname "XL Widget" "$DMG_NAME"
+    hdiutil create -fs HFS+ -srcfolder Build/DMG -volname "XL Widget" -ov "$DMG_NAME"
+    
+    # Try to set the volume icon if we have a high-res png
+    if [ -f "XL Widget/Assets.xcassets/AppIcon.appiconset/256.png" ]; then
+        echo "Attempting to set volume icon..."
+        # This is a bit complex for a shell script without extra tools, 
+        # but hdiutil -srcfolder usually picks up .VolumeIcon.icns if present
+        # For now, create-dmg is the preferred path for icons.
+    fi
 fi
 
 echo "DMG created at $DMG_NAME"
