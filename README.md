@@ -31,7 +31,7 @@ Download the latest version as a `.dmg` from the **[Releases](https://github.com
 ## 🚀 Getting Started
 
 ### Prerequisites
-- macOS 13.0 or later
+- macOS 14.0 or later
 - Xcode 15.0+
 
 ### Installation

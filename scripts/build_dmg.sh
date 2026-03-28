@@ -10,7 +10,13 @@ APP_NAME="XL Widget.app"
 
 # 1. Clean and Build
 echo "Building the project..."
-xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -derivedDataPath Build/ -archivePath Build/XLWidget.xcarchive archive -quiet
+xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" \
+    -derivedDataPath Build/ \
+    -archivePath Build/XLWidget.xcarchive \
+    CODE_SIGNING_ALLOWED=NO \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO \
+    archive -quiet
 
 # 2. Export the .app
 echo "Exporting the .app..."
