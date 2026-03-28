@@ -9,10 +9,11 @@ A lightweight, native macOS menu bar utility that keeps your XL Axiata data quot
 Download the latest version as a `.dmg` from the **[Releases](https://github.com/amusfq/xl-widget/releases)** page.
 
 > [!IMPORTANT]
-> Since this app is not signed with an Apple Developer certificate, macOS will block it on the first launch. To open it:
-> 1. Right-click (or Control-click) the app icon.
-> 2. Select **Open**.
-> 3. Click **Open** again on the security dialog.
+> Since this app is not signed with an Apple Developer certificate, macOS will block it with a "Damaged" error. To fix this, open **Terminal** and run:
+> ```bash
+> xattr -cr /Applications/XL\ Widget.app
+> ```
+> (Assuming you moved the app to your Applications folder).
 
 ## ✨ Features
 
