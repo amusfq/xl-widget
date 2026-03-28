@@ -1,6 +1,18 @@
 # 📶 XL Data Widget for macOS
 
+[![Release](https://img.shields.io/github/v/release/amusfq/xl-widget?display_name=tag&style=flat-square)](https://github.com/amusfq/xl-widget/releases)
+
 A lightweight, native macOS menu bar utility that keeps your XL Axiata data quota and package expiry visible at all times. Built with SwiftUI and modern Swift concurrency.
+
+## 📥 Download
+
+Download the latest version as a `.dmg` from the **[Releases](https://github.com/amusfq/xl-widget/releases)** page.
+
+> [!IMPORTANT]
+> Since this app is not signed with an Apple Developer certificate, macOS will block it on the first launch. To open it:
+> 1. Right-click (or Control-click) the app icon.
+> 2. Select **Open**.
+> 3. Click **Open** again on the security dialog.
 
 ## ✨ Features
 
