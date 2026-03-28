@@ -6,27 +6,27 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct XL_WidgetApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @StateObject private var quotaManager = QuotaManager()
+    
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra {
             ContentView()
+                .environmentObject(quotaManager)
+        } label: {
+            HStack(spacing: 4) {
+                Image(systemName: "antenna.radiowaves.left.and.right")
+                Text("\(quotaManager.currentQuota)\(quotaManager.daysRemaining)")
+                    .font(.system(size: 11, weight: .medium))
+            }
         }
-        .modelContainer(sharedModelContainer)
+        .menuBarExtraStyle(.window)
+        
+        Settings {
+            SettingsView()
+                .environmentObject(quotaManager)
+        }
     }
 }
